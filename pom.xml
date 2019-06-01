@@ -12,6 +12,7 @@
     <modules>
         <module>btrace-demo</module>
         <module>steam-demo</module>
+        <module>base-demo</module>
     </modules>
 
     <properties>
