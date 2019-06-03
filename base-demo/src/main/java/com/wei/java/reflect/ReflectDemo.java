@@ -24,7 +24,7 @@ public class ReflectDemo {
         System.out.println("类名称   "+demo2.getName());
         System.out.println("类名称   "+demo3.getName());
 
-
+        System.out.println("获取构造函数，生成实例");
         ReflectDemo reflectDemo = null;
         ReflectDemo reflectDemo1 = null;
         ReflectDemo reflectDemo2 = null;
@@ -48,6 +48,8 @@ public class ReflectDemo {
         reflectDemo1.print();
         reflectDemo2.print();
         reflectDemo3.print();
+
+
     }
 
     public ReflectDemo(int x) {
