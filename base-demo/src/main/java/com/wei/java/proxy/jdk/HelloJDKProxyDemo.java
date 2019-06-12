@@ -1,4 +1,4 @@
-package com.wei.java.proxy;
+package com.wei.java.proxy.jdk;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationHandler;
