@@ -131,6 +131,10 @@ public class ReflectDemo extends ReflectSuperDemo implements ReflectInterfaceDem
                     + filed1[j].getName() + ";");
         }
 
+
+        ReflectDemo t=new ReflectDemo();
+        System.out.println("类加载器  "+t.getClass().getClassLoader().getClass().getName());
+
     }
 
     public ReflectDemo(int x) {
