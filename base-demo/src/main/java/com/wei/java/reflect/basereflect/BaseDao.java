@@ -6,8 +6,11 @@ import java.lang.reflect.Field;
 /**
  * Created by viruser on 2019/7/22.
  */
-public class BaseDao<T> {
-    void update(T var) {
+public abstract class BaseDao<T> {
+
+//    public abstract void update(T var);
+
+    void update0(T var) {
         Class<?> varClass = var.getClass();
         Field[] fields = varClass.getDeclaredFields();
         for (Field f : fields) {

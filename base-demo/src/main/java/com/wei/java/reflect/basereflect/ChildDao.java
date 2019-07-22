@@ -5,9 +5,9 @@ package com.wei.java.reflect.basereflect;
  */
 public class ChildDao extends BaseDao<ChildPO> {
 
-    @Override
+
     public void update(ChildPO childPO) {
-        super.update(childPO);
+        super.update0(childPO);
     }
 
 }

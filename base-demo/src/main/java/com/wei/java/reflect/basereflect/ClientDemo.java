@@ -11,5 +11,8 @@ public class ClientDemo{
         childPO.setCode("A001");
         childPO.setValue(101);
         childDao.update(childPO);
+
+        Child2Dao child2Dao = new Child2Dao();
+        child2Dao.update(childPO);
     }
 }
