@@ -3,9 +3,10 @@ package com.wei.java.thread;
 import com.wei.java.util.SystemOutUtil;
 
 /**
- * Created by viruser on 2019/6/3.
+ * Created by viruser on 2019/9/7.
  */
-public class MyTaskThread extends Thread {
+public class MyTaskRunnable implements Runnable {
+
     @Override
     public void run() {
         SystemOutUtil.println("my thread run start: " + this);
