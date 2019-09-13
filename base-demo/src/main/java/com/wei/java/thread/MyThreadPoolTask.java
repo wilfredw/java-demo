@@ -3,7 +3,7 @@ package com.wei.java.thread;
 /**
  * Created by viruser on 2019/6/3.
  */
-public class MyTaskThread extends Thread {
+public class MyThreadPoolTask implements Runnable {
     @Override
     public void run() {
         System.out.println("my thread run start: " + this);
