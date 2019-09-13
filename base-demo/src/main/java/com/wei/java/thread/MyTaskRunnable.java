@@ -12,6 +12,7 @@ public class MyTaskRunnable implements Runnable {
         SystemOutUtil.println("my thread run start: " + this);
         try {
             Thread.sleep(1000);
+            Thread.yield();
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
