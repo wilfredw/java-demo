@@ -5,7 +5,7 @@ import com.wei.java.util.SystemOutUtil;
 /**
  * Created by viruser on 2019/6/3.
  */
-public class MyTaskThread extends Thread {
+public class MyThreadPoolTask implements Runnable {
     @Override
     public void run() {
         SystemOutUtil.println("my thread run start: " + this);

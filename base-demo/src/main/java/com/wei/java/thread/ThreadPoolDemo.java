@@ -9,9 +9,9 @@ import java.util.concurrent.Executors;
 public class ThreadPoolDemo {
     public static void main(String[] args) {
         ExecutorService singlePool = Executors.newSingleThreadExecutor();
-        Thread t1 = new MyTaskThread();
-        Thread t2 = new MyTaskThread();
-        Thread t3 = new MyTaskThread();
+        Runnable t1 = new MyThreadPoolTask();
+        Runnable t2 = new MyThreadPoolTask();
+        Runnable t3 = new MyThreadPoolTask();
         System.out.println("start execute task");
         singlePool.execute(t1);
         singlePool.execute(t2);
@@ -24,6 +24,7 @@ public class ThreadPoolDemo {
         fixNumPool.execute(t2);
         fixNumPool.execute(t3);
         System.out.println("finish execute task");
+
         return ;
     }
 

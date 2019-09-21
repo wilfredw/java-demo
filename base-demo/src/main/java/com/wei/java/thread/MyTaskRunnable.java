@@ -15,6 +15,7 @@ public class MyTaskRunnable implements Runnable {
                 SystemOutUtil.println("do run " + this);
                 Thread.sleep(1000);
             }
+            Thread.yield();
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
