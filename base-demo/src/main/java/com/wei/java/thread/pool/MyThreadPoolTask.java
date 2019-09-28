@@ -1,4 +1,4 @@
-package com.wei.java.thread;
+package com.wei.java.thread.pool;
 
 import com.wei.java.util.SystemOutUtil;
 
