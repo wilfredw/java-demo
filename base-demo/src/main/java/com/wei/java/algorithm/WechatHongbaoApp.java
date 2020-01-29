@@ -47,6 +47,7 @@ public class WechatHongbaoApp {
             double money = remainHongbao.getRemainMoney();
             remainHongbao.setRemainPerson(0);
             remainHongbao.setRemainMoney(0);
+            money = Math.floor(money * 100) / 100;
             return money;
         }
         double maxRemainMoney = remainHongbao.getRemainMoney() -
