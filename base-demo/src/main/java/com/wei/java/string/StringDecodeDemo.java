@@ -2,7 +2,7 @@ package com.wei.java.string;
 
 import java.io.UnsupportedEncodingException;
 
-public class CharDemo {
+public class StringDecodeDemo {
     public static void main(String[] args) {
         char tabChar = '\t';
         char spaceChar = ' ';
