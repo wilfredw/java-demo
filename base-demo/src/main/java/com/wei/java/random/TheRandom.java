@@ -2,7 +2,10 @@ package com.wei.java.random;
 
 import com.wei.java.util.SystemOutUtil;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Random;
+import java.util.TreeSet;
 
 public class TheRandom {
     public static void main(String[] args) {
