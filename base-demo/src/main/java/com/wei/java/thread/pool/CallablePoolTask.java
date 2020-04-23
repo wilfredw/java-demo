@@ -8,6 +8,7 @@ public class CallablePoolTask implements Callable<String> {
     @Override
     public String call() throws Exception {
         SystemOutUtil.println("CallablePoolTask call...");
+        Thread.sleep(5000);
         return "call result";
     }
 }
