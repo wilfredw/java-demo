@@ -13,9 +13,9 @@ public class ThreadDemo {
     public static void main(String[] args) {
         SystemOutUtil.println("main start");
 //        MyTaskThread myTaskThread = new MyTaskThread();
-        Thread myTaskThread = new Thread(new MyTaskRunnable());
+        Thread myTaskThread = new Thread(new MyTaskRunnable(), "myTaskThread");
         myTaskThread.start();
-        Thread runThread = new Thread(new MyTaskRunnable());
+        Thread runThread = new Thread(new MyTaskRunnable(), "runThread");
         runThread.start();
         SystemOutUtil.println("thread created");
         try {
