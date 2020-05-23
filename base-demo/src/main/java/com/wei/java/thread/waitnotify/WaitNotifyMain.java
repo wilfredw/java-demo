@@ -39,6 +39,7 @@ class WaitNotifyMain {
             }
         }
         SystemOutUtil.println("Main over!");
+        executorService.shutdown();
         return ;
     }
 }
