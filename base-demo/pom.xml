@@ -10,6 +10,26 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>base-demo</artifactId>
+
+    <dependencies>
+        <dependency>
+            <groupId>cglib</groupId>
+            <artifactId>cglib</artifactId>
+            <version>3.3.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.openjdk.jmh</groupId>
+            <artifactId>jmh-core</artifactId>
+            <version>1.26</version>
+        </dependency>
+        <dependency>
+            <groupId>org.openjdk.jmh</groupId>
+            <artifactId>jmh-generator-annprocess</artifactId>
+            <version>1.26</version>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
+
     <build>
         <finalName>${project.name}</finalName>
         <plugins>
