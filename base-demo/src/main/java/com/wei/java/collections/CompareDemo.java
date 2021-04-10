@@ -20,5 +20,16 @@ public class CompareDemo {
             }
         });
         System.out.println(validUids);
+
+        List<Integer> ids = new ArrayList<>(Arrays.asList(3, 1, 5, 2));
+        // 升序排列
+        Collections.sort(ids, new Comparator<Integer>() {
+            @Override
+            public int compare(Integer o1, Integer o2) {
+                System.out.println(o1 + " " + o2 + " compare result: " + o1.compareTo(o2));
+                return o1.compareTo(o2);
+            }
+        });
+        System.out.println(ids);
     }
 }
