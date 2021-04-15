@@ -17,24 +17,30 @@ import java.util.TimeZone;
 public class DateTimeDemo {
     public static void main(String[] args) {
         //获取秒数 gmt+8
+        // 这是标准时区的时间戳
         Long second8 = LocalDateTime.now().toEpochSecond(ZoneOffset.of("+8"));
         //获取毫秒数 gmt+8
+        // 这是标准时区的时间戳
         Long milliSecond8 = LocalDateTime.now().toInstant(ZoneOffset.of("+8")).toEpochMilli();
         //获取秒数 gmt+0
+        // 这是+8时区的时间戳
         Long second0 = LocalDateTime.now().toEpochSecond(ZoneOffset.of("+0"));
         //获取毫秒数 gmt+0
+        // 这是+8时区的时间戳
         Long milliSecond0 = LocalDateTime.now().toInstant(ZoneOffset.of("+0")).toEpochMilli();
+
         //获取秒数 currentTimeMillis
+        // 这是标准时区的时间戳
         long totalMilliSeconds = System.currentTimeMillis();
 
-        System.out.println("+8 second:      " + second8);
-        System.out.println("+8 milliSecond: " + milliSecond8);
+        System.out.println("+8 second:      " + second8);// 这是标准时区的时间戳
+        System.out.println("+8 milliSecond: " + milliSecond8);// 这是标准时区的时间戳
 
-        System.out.println("+0 seconds:     " + second0);
-        System.out.println("+0 milliSeconds:" + milliSecond0);
+        System.out.println("+0 seconds:     " + second0);// 这是+8时区的时间戳
+        System.out.println("+0 milliSeconds:" + milliSecond0);// 这是+8时区的时间戳
 
         //显示时间
-        System.out.println("+s seconds:     " + totalMilliSeconds);
+        System.out.println("+s seconds:     " + totalMilliSeconds);// 这是标准时区的时间戳
 
         // 偏移时间
         System.out.println("offset milliSeconds: " + String.valueOf(milliSecond8 - milliSecond0));
