@@ -16,6 +16,7 @@
         <module>junit-demo</module>
         <module>mapstruct-demo</module>
         <module>curator-demo</module>
+        <module>performance-demo</module>
     </modules>
 
     <properties>
