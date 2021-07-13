@@ -17,6 +17,8 @@
         <module>mapstruct-demo</module>
         <module>curator-demo</module>
         <module>performance-demo</module>
+        <module>middleware-demo</module>
+        <module>utils-demo</module>
     </modules>
 
     <properties>
