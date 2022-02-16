@@ -21,5 +21,9 @@ public class FastJsonDemo {
         SystemOutUtil.println(messageStr);
         MessageDTO messageDTO1 = JSON.parseObject(messageStr, MessageDTO.class);
         SystemOutUtil.println(JSON.toJSONString(messageDTO1));
+
+        String newLineStr = "a\nbb";
+        System.out.println(newLineStr);
+        System.out.println(JSON.toJSONString(newLineStr));
     }
 }

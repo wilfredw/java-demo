@@ -30,11 +30,11 @@ public class ParamValidator {
 
     }
 
-    public <C extends Object> void validate(C command) throws ConstraintViolationException {
-        Set<ConstraintViolation<C>> constraintViolations = validator.validate(command);
-        System.out.println(constraintViolations);
+    public <C extends Object> void validate(C command, Class<?>... groups) throws ConstraintViolationException {
+        Set<ConstraintViolation<C>> constraintViolations = validator.validate(command, groups);
         if (null != constraintViolations && constraintViolations.size() > 0) {
             throw new ConstraintViolationException(constraintViolations);
         }
     }
+
 }
