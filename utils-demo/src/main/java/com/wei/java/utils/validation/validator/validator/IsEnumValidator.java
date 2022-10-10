@@ -1,10 +1,12 @@
 package com.wei.java.utils.validation.validator.validator;
 
-import cn.hutool.core.util.StrUtil;
 import org.apache.commons.lang3.StringUtils;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
+import java.lang.reflect.Method;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -16,9 +18,15 @@ import java.util.TreeSet;
  */
 public class IsEnumValidator implements ConstraintValidator<IsEnum, String> {
 
-    private boolean required = false;
+    private static final String ENUM_FIELD_NAME = "name";
+    private static final String ENUM_FIELD_CODE = "code";
+
     private Class<? extends Enum> enumClass;
+    boolean matchFieldName = false;
+    boolean matchFieldCode = false;
     private Set<String> enumNameSet;
+    private Set<String> enumCodeSet;
+
 
     /**
      * 用于初始化注解上的值到这个validator
@@ -27,10 +35,17 @@ public class IsEnumValidator implements ConstraintValidator<IsEnum, String> {
      */
     @Override
     public void initialize(IsEnum constraintAnnotation) {
-        required = constraintAnnotation.required();
         enumClass = constraintAnnotation.enumType();
+        List<String> enumFields = Arrays.asList(constraintAnnotation.enumFields());
+        if (enumFields.contains(ENUM_FIELD_NAME)) {
+            matchFieldName = true;
+        }
+        if (enumFields.contains(ENUM_FIELD_CODE)) {
+            matchFieldCode = true;
+        }
 
         enumNameSet = new TreeSet<>();
+        enumCodeSet = new TreeSet<>();
         //转换枚举类
         Class<Enum> clazz = (Class<Enum>) enumClass;
         /**
@@ -40,10 +55,27 @@ public class IsEnumValidator implements ConstraintValidator<IsEnum, String> {
          */
         Enum[] enumConstants = clazz.getEnumConstants();
 
-        for (Enum enums : enumConstants) {
-            //得到枚举实例名
-            String instance = enums.name();
-            enumNameSet.add(instance);
+        if (matchFieldName) {
+            for (Enum enums : enumConstants) {
+                //得到枚举实例名
+                String instance = enums.name();
+                enumNameSet.add(instance);
+            }
+        }
+
+        if (matchFieldCode) {
+            try {
+                Method getCodeMethod = clazz.getMethod("getCode");
+                if (getCodeMethod != null) {
+                    for (Enum enums : enumConstants) {
+                        String code = String.valueOf(
+                                getCodeMethod.invoke(enums));
+                        enumCodeSet.add(code);
+                    }
+                }
+            } catch (Exception e) {
+                System.out.println("failed to load enum " + enumClass.getName());
+            }
         }
     }
 
@@ -56,23 +88,16 @@ public class IsEnumValidator implements ConstraintValidator<IsEnum, String> {
      */
     @Override
     public boolean isValid(String value, ConstraintValidatorContext context) {
-        if (StringUtils.isBlank(value)) {
-            if (required) {
-                return false;
-            } else {
-                return true;
-            }
+        if (StringUtils.isEmpty(value)) {
+            return true;
         }
 
-        return isEnum(enumClass, value);
+        return isEnum(value);
     }
 
-    public boolean isEnum(Class<?> beanClass, String status) {
-        if (StrUtil.isBlank(status)) {
-            return false;
-        }
-
-        return enumNameSet.contains(status);
+    public boolean isEnum(String value) {
+        return (matchFieldCode && enumCodeSet.contains(value))
+                || (matchFieldName && enumNameSet.contains(value));
 
     }
 

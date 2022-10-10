@@ -52,7 +52,7 @@ public class DemoCommand implements Serializable {
      * @TypeEnum
      */
     @NotNull(groups = {Create.class}, message = "type is null")
-    @IsEnum(required = false, enumType = TypeEnum.class)
+    @IsEnum(enumType = TypeEnum.class)
     private String type;
 
     public static long getSerialVersionUID() {

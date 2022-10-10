@@ -1,6 +1,7 @@
 package com.wei.java.collections;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -20,5 +21,18 @@ public class ListDemo {
         System.out.println(userIdList.size());
         System.out.println(userIdList.get(0));
         System.out.println(subList);
+
+        System.out.println("-----------");
+        Iterator<String> iterator = userIdList.iterator();
+        while (iterator.hasNext()) {
+            String i = iterator.next();
+            if (i.equalsIgnoreCase("b")) {
+                System.out.println("remove " + i);
+                iterator.remove();
+            } else {
+                System.out.println(i);
+            }
+        }
+        System.out.println("final: " + userIdList);
     }
 }
