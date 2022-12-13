@@ -32,6 +32,7 @@ public class SimpleWrite {
             data.setValue10(cellValue + 1);
             list.add(data);
         }
+        System.out.println("data() size " + list.size());
         return list;
     }
 
@@ -58,6 +59,8 @@ public class SimpleWrite {
 
         // 时间
         long begin = System.currentTimeMillis();
+        System.out.println("============ start =============");
+        printMemory();
 
         // 写法3
         fileName = path + "simpleWrite3-" + System.currentTimeMillis() + ".xlsx";
@@ -73,6 +76,7 @@ public class SimpleWrite {
                 excelWriter.finish();
             }
         }
+        System.out.println("============ end =============");
         printMemory();
         long end = System.currentTimeMillis();
         System.out.println("time:" + (double) (end - begin) / 1000);
