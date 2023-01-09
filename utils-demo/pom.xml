@@ -22,7 +22,7 @@
         <easyexcel.version>2.2.6</easyexcel.version>
         <easy-batch.version>6.1.0</easy-batch.version>
         <qlexpress.version>3.2.0</qlexpress.version>
-        <commons.text.version>1.9</commons.text.version>
+        <commons.text.version>1.10.0</commons.text.version>
         <org.mapstruct.version>1.3.1.Final</org.mapstruct.version>
         <hutool.version>5.5.4</hutool.version>
 
