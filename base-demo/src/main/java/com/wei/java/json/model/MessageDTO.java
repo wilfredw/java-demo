@@ -2,6 +2,8 @@ package com.wei.java.json.model;
 
 import com.alibaba.fastjson.JSONObject;
 
+import java.util.Map;
+
 /**
  * @author buhuan.wang
  * @since 2021/6/16
@@ -10,6 +12,7 @@ public class MessageDTO {
     private String name;
     private String type;
     private JSONObject content;
+    private Map<String, String> valueMap;
 
     public String getName() {
         return name;
@@ -33,5 +36,13 @@ public class MessageDTO {
 
     public void setContent(JSONObject content) {
         this.content = content;
+    }
+
+    public Map<String, String> getValueMap() {
+        return valueMap;
+    }
+
+    public void setValueMap(Map<String, String> valueMap) {
+        this.valueMap = valueMap;
     }
 }

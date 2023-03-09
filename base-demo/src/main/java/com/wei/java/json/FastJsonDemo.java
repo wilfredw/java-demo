@@ -5,6 +5,9 @@ import com.alibaba.fastjson.JSONObject;
 import com.wei.java.json.model.MessageDTO;
 import com.wei.java.util.SystemOutUtil;
 
+import java.util.LinkedHashMap;
+import java.util.Map;
+
 /**
  * @author buhuan.wang
  * @since 2021/6/16
@@ -13,14 +16,21 @@ public class FastJsonDemo {
     public static void main(String[] args) {
         JSONObject context = new JSONObject();
         context.put("a", "a");
+        context.put("b", null);
+        context.put("c", "");
         MessageDTO messageDTO = new MessageDTO();
         messageDTO.setName("message");
         messageDTO.setType("single");
         messageDTO.setContent(context);
+        Map<String, String> valueMap = new LinkedHashMap<>();
+        valueMap.put("x", "x");
+        valueMap.put("y", null);
+        valueMap.put("z", "");
+        messageDTO.setValueMap(valueMap);
         String messageStr = JSON.toJSONString(messageDTO);
-        SystemOutUtil.println(messageStr);
+        SystemOutUtil.println("1: " + messageStr);
         MessageDTO messageDTO1 = JSON.parseObject(messageStr, MessageDTO.class);
-        SystemOutUtil.println(JSON.toJSONString(messageDTO1));
+        SystemOutUtil.println("2: " + JSON.toJSONString(messageDTO1));
 
         String newLineStr = "a\nbb";
         System.out.println(newLineStr);
