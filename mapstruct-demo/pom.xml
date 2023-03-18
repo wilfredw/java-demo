@@ -43,6 +43,7 @@
                         <!--                                                                                         -->
                         <!-- According to this documentation, the provided dependency processor is not considered!   -->
                         <annotationProcessorPaths>
+                            <!-- 没有lombok-mapstruct-binding，并且mapstruct-processor先于lombok处理，就会出问题   -->
                             <path>
                                 <groupId>org.mapstruct</groupId>
                                 <artifactId>mapstruct-processor</artifactId>

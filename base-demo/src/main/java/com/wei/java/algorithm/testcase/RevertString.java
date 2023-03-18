@@ -1,4 +1,4 @@
-package com.wei.java.algorithm;
+package com.wei.java.algorithm.testcase;
 
 import java.util.ArrayList;
 import java.util.concurrent.*;

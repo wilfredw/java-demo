@@ -1,4 +1,4 @@
-package com.wei.java.algorithm;
+package com.wei.java.algorithm.testcase;
 
 import java.util.Iterator;
 import java.util.Scanner;

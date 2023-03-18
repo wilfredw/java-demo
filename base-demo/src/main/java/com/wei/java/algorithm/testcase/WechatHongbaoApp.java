@@ -1,6 +1,5 @@
-package com.wei.java.algorithm;
+package com.wei.java.algorithm.testcase;
 
-import java.util.Random;
 import java.util.Scanner;
 
 public class WechatHongbaoApp {

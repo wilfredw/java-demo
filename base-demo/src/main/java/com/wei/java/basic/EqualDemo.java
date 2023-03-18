@@ -19,5 +19,9 @@ public class EqualDemo {
 
         result = Objects.equals(null, b);
         SystemOutUtil.println("null equal with Integer: " + result);
+
+        long costTimeMS = 738;
+        long costTimeHMS = costTimeMS / 100;
+        System.out.println("cost time: " + costTimeMS + " ms, " + costTimeHMS + " hms.");
     }
 }

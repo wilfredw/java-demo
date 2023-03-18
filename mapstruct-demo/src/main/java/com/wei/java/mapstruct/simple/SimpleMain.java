@@ -1,6 +1,7 @@
 package com.wei.java.mapstruct.simple;
 
 import com.wei.java.mapstruct.simple.converter.DateTimeConverter;
+import com.wei.java.mapstruct.simple.converter.SimpleAbstractClassConverter;
 import com.wei.java.mapstruct.simple.converter.SimpleConverter;
 import com.wei.java.mapstruct.simple.enums.UserTypeEnum;
 import com.wei.java.mapstruct.simple.model.UserDO;
@@ -28,6 +29,11 @@ public class SimpleMain {
         UserDTO userDTO = SimpleConverter.MAPPER.fromDOtoDTO(userDO);
         System.out.println("name: " + userDTO.getName()
                 + " type: " + userDTO.getType());
+
+        System.out.println("----------");
+        UserDTO userDTO2 = SimpleAbstractClassConverter.MAPPER.fromDOtoDTO(userDO);
+        System.out.println("name: " + userDTO2.getName()
+                + " type: " + userDTO2.getType());
         return;
     }
 }
