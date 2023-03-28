@@ -11,8 +11,10 @@ import java.util.Map;
 public class MessageDTO {
     private String name;
     private String type;
-    private JSONObject content;
+    private String value;
+    private JSONObject context;
     private Map<String, String> valueMap;
+    private SubMessageDTO subMessage;
 
     public String getName() {
         return name;
@@ -30,12 +32,12 @@ public class MessageDTO {
         this.type = type;
     }
 
-    public JSONObject getContent() {
-        return content;
+    public JSONObject getContext() {
+        return context;
     }
 
-    public void setContent(JSONObject content) {
-        this.content = content;
+    public void setContext(JSONObject context) {
+        this.context = context;
     }
 
     public Map<String, String> getValueMap() {
@@ -44,5 +46,42 @@ public class MessageDTO {
 
     public void setValueMap(Map<String, String> valueMap) {
         this.valueMap = valueMap;
+    }
+
+    public String getValue() {
+        return value;
+    }
+
+    public void setValue(String value) {
+        this.value = value;
+    }
+
+    public SubMessageDTO getSubMessage() {
+        return subMessage;
+    }
+
+    public void setSubMessage(SubMessageDTO subMessage) {
+        this.subMessage = subMessage;
+    }
+
+    public static class SubMessageDTO {
+        private String messageType;
+        private String messageValue;
+
+        public String getMessageType() {
+            return messageType;
+        }
+
+        public void setMessageType(String messageType) {
+            this.messageType = messageType;
+        }
+
+        public String getMessageValue() {
+            return messageValue;
+        }
+
+        public void setMessageValue(String messageValue) {
+            this.messageValue = messageValue;
+        }
     }
 }
