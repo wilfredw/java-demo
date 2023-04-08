@@ -2,6 +2,7 @@ package com.wei.java.json.model;
 
 import com.alibaba.fastjson.JSONObject;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -15,6 +16,7 @@ public class MessageDTO {
     private JSONObject context;
     private Map<String, String> valueMap;
     private SubMessageDTO subMessage;
+    private List<SubMessageDTO> subMessageList;
 
     public String getName() {
         return name;
@@ -62,6 +64,14 @@ public class MessageDTO {
 
     public void setSubMessage(SubMessageDTO subMessage) {
         this.subMessage = subMessage;
+    }
+
+    public List<SubMessageDTO> getSubMessageList() {
+        return subMessageList;
+    }
+
+    public void setSubMessageList(List<SubMessageDTO> subMessageList) {
+        this.subMessageList = subMessageList;
     }
 
     public static class SubMessageDTO {
