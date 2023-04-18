@@ -19,6 +19,8 @@ import java.util.TimeZone;
  */
 public class DateTimeDemo2 {
     public static void main(String[] args) {
+        // Instant有时区概念，通过时区转换，和System.currentTimeMillis()一样，是世界时间
+        // LocalDateTime 没有时区概念
         LocalDateTime currentLocalDateTime = LocalDateTime.now();
         System.out.println("currentLocalDateTime: " + currentLocalDateTime);
 
@@ -46,12 +48,14 @@ public class DateTimeDemo2 {
 
         //获取秒数 gmt+8
         // 当前地区的时间，以当前时区转换时间戳，这是标准时区的时间戳
+        // 把+8的currentLocalDateTime当作+8时区，则没有偏移
         Long second8 = currentLocalDateTime.toEpochSecond(ZoneOffset.of("+8"));
         //获取毫秒数 gmt+8
         // 当前地区的时间，以当前时区转换时间戳，这是标准时区的时间戳
         Long milliSecond8 = currentLocalDateTime.toInstant(ZoneOffset.of("+8")).toEpochMilli();
         //获取秒数 gmt+0
         // 当前地区的时间，以GMT+0时区转换时间戳，快了8小时
+        // 把+8的currentLocalDateTime当作+0时区，则快8小时
         Long second0 = currentLocalDateTime.toEpochSecond(ZoneOffset.of("+0"));
         //获取毫秒数 gmt+0
         // 当前地区的时间，以GMT+0时区转换时间戳，快了8小时

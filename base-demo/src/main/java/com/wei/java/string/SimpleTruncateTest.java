@@ -7,7 +7,7 @@ import org.junit.Test;
  * @author buhuan.wang
  * @since 2022/5/19
  */
-public class SimpleTest {
+public class SimpleTruncateTest {
     @Test
     public void truncateStr() {
 
@@ -34,6 +34,7 @@ public class SimpleTest {
         System.out.println(sourceUri.substring(0, 1));
         System.out.println(sourceUri.substring(0, 2));
         System.out.println(sourceUri.substring(0, sourceUri.length() - 1));
+        System.out.println(sourceUri.substring(1, sourceUri.length() - 1));
         System.out.println(sourceUri.substring(0, sourceUri.length()));
         //System.out.println(sourceUri.substring(0, sourceUri.length() + 1)); // error
         System.out.println(sourceUri.substring(0));
