@@ -1,13 +1,17 @@
 package com.wei.java.mapstruct.simple;
 
+import com.wei.java.mapstruct.simple.converter.AmbiguousConverter;
 import com.wei.java.mapstruct.simple.converter.DateTimeConverter;
 import com.wei.java.mapstruct.simple.converter.SimpleAbstractClassConverter;
 import com.wei.java.mapstruct.simple.converter.SimpleConverter;
 import com.wei.java.mapstruct.simple.enums.UserTypeEnum;
+import com.wei.java.mapstruct.simple.model.BaseDO;
 import com.wei.java.mapstruct.simple.model.UserDO;
 import com.wei.java.mapstruct.simple.model.UserDTO;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 /**
  * 类的详细说明
@@ -34,6 +38,15 @@ public class SimpleMain {
         UserDTO userDTO2 = SimpleAbstractClassConverter.MAPPER.fromDOtoDTO(userDO);
         System.out.println("name: " + userDTO2.getName()
                 + " type: " + userDTO2.getType());
+
+//        List<UserDO> userDOS = new ArrayList<>();
+//        userDOS.add(userDO);
+//        System.out.println(AmbiguousConverter.MAPPER.fromDOtoDTOs(userDOS));
+        List<BaseDO> baseDOS = new ArrayList<>();
+        BaseDO baseDO = new BaseDO();
+        baseDO.setId("1");
+        baseDOS.add(baseDO);
+        System.out.println(AmbiguousConverter.MAPPER.fromDOtoDTOs(baseDOS));
         return;
     }
 }

@@ -21,6 +21,7 @@
         <module>utils-demo</module>
         <module>excel-demo</module>
         <module>log-demo</module>
+        <module>design-pattern-demo</module>
     </modules>
 
     <properties>
