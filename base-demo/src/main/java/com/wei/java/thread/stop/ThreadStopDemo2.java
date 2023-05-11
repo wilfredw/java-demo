@@ -14,6 +14,7 @@ public class ThreadStopDemo2 {
         thread.start();
         Thread.sleep(500);
         thread.stop();
+        // stop后，synchronizedObject中数据不一致
         System.out.println(synchronizedObject.getName() + "  " + synchronizedObject.getPassword());
     }
 
@@ -22,7 +23,7 @@ public class ThreadStopDemo2 {
         private String name = "a";
         private String password = "aa";
 
-        public synchronized void printString(String name, String password) {
+        public synchronized void setString(String name, String password) {
             try {
                 this.name = name;
                 Thread.sleep(100000);
@@ -57,7 +58,7 @@ public class ThreadStopDemo2 {
         }
 
         public void run() {
-            synchronizedObject.printString("b", "bb");
+            synchronizedObject.setString("b", "bb");
         }
     }
 
