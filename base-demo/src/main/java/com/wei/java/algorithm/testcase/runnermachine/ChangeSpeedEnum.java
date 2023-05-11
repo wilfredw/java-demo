@@ -1,4 +1,4 @@
-package com.wei.java.algorithm;
+package com.wei.java.algorithm.testcase.runnermachine;
 
 public enum ChangeSpeedEnum {
     INCREASE,

@@ -1,4 +1,4 @@
-package com.wei.java.algorithm;
+package com.wei.java.algorithm.other;
 
 /**
  * 一个数x个位数是4，将个位数的4移动到首位，得到的数等于x的4倍。

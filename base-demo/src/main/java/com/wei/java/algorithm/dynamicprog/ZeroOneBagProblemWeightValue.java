@@ -10,7 +10,7 @@ package com.wei.java.algorithm.dynamicprog;
 public class ZeroOneBagProblemWeightValue {
 
     private static int[] weight = {2, 2, 4, 6, 3}; // 物品重量
-    private static int[] value = {2, 2, 4, 6, 3}; // 物品重量
+    private static int[] value = {2, 2, 4, 6, 3}; // 物品价值
     private static int n = 5; // 物品个数
     private static int w = 9; // 背包承受的最大重量
 
@@ -50,6 +50,19 @@ public class ZeroOneBagProblemWeightValue {
         System.out.println(ret);
     }
 
+    /**
+     * 回溯遍历把每一个东西放入或者不放入包中，在不超过总承重情况下，获得最大价值的情况（重量大小无所谓）
+     * 这里每个步骤的只有重量都有限制，所以每种情况都会影响后续步骤发展，以及最终结果。
+     * 所以要记录每一种重量的情况，价值只需要最大值，不需要记录每种情况，只需要最大值
+     * nodeCalcStates只要存储每个步骤（放或者不放）后，包内所有可能存在的重量情况，和每个重量对应的最大价值。
+     * 原先是重量存在不存在，现在是每个重量下的价值，相同重量取最大价值
+     *
+     * @param nodeWeight
+     * @param nodeValue
+     * @param nodeTotalNum
+     * @param bagWeight
+     * @return
+     */
     public static int knapsack2(int[] nodeWeight, int[] nodeValue, int nodeTotalNum, int bagWeight) {
         int[] nodeCalcStates = new int[bagWeight + 1];
         for (int i = 0; i < nodeCalcStates.length; ++i) {

@@ -92,6 +92,15 @@ public class ZeroOneBagProblemWeight {
     }
 
 
+    /**
+     * 回溯遍历把每一个东西放入或者不放入包中，在不超过总承重情况下，获得最大重量的情况
+     * nodeCalcStates只要存储每个步骤（放或者不放）后，包内所有可能存在的重量和价值的情况。
+     * 重量存在不存在
+     * @param nodeWeight
+     * @param nodeTotalNum
+     * @param bagWeight
+     * @return
+     */
     public static int knapsack2(int[] nodeWeight, int nodeTotalNum, int bagWeight) {
         boolean[] nodeCalcStates = new boolean[bagWeight + 1];
 
@@ -109,6 +118,8 @@ public class ZeroOneBagProblemWeight {
 
             if (nodeWeight[nodeIndex] <= bagWeight) {
                 // 当前物品放进去的情况
+                // 这里要倒着处理，从大的开始，这样加的重量更大，才不会影响后续的要处理的小的j
+                // 如果从小的重量j开始，那么加上重量后，会和原本的后续的重量j混在一起，无法区分，影响计算处理
                 for (int j = bagWeight - nodeWeight[nodeIndex]; j >= 0; --j) {
                     if (nodeCalcStates[j] == true) {
                         includeNodeW = j + nodeWeight[nodeIndex];

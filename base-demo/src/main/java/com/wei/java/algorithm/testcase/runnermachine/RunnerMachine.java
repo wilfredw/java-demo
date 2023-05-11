@@ -1,4 +1,4 @@
-package com.wei.java.algorithm;
+package com.wei.java.algorithm.testcase.runnermachine;
 
 import com.wei.java.thread.pool.exception.BusinessException;
 

@@ -1,4 +1,4 @@
-package com.wei.java.algorithm;
+package com.wei.java.algorithm.testcase.runnermachine;
 
 /**
  * 跑步状态统计数据

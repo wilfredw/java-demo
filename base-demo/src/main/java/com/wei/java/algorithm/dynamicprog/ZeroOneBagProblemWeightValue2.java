@@ -52,6 +52,20 @@ public class ZeroOneBagProblemWeightValue2 {
         System.out.println(ret);
     }
 
+    /**
+     * 回溯遍历把每一个东西放入或者不放入包中，在不超过总承重情况下，并且价值不超过最大价值，获得最大重量和价值的情况
+     * 这里每个步骤的重量和价值都有限制，所以每种情况都会影响后续步骤发展，以及最终结果。
+     * 所以要记录每一种价值和重量的情况
+     * nodeCalcStates只要存储每个步骤（放或者不放）后，包内所有可能存在的重量和价值的情况。
+     * 原先是重量存在不存在，现在是每个重量和每个价值情况下存不存在（即是否可行），取最大重量和价值
+     *
+     * @param nodeWeight
+     * @param nodeValue
+     * @param nodeTotalNum
+     * @param bagWeight
+     * @param bagValue
+     * @return
+     */
     public static int knapsack2(int[] nodeWeight, int[] nodeValue, int nodeTotalNum, int bagWeight, int bagValue) {
         boolean[][] nodeCalcStates = new boolean[bagWeight + 1][bagValue + 1];
 
