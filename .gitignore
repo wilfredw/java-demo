@@ -24,6 +24,7 @@
 .idea/
 *.iml
 target/
+testdir/
 
 .DS_Store
 

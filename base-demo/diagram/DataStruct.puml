@@ -1,0 +1,104 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+
+interface Collection {
+boolean add(E e);
+boolean remove(Object o);
+}
+
+interface Queue {
+boolean add(E e);
+boolean offer(E e);
+E remove();
+E poll();
+E element();
+E peek();
+}
+Collection <|- Queue
+
+interface BlockingQueue {
+boolean add(E e);
+boolean remove(Object o);
+boolean offer(E e);
+boolean offer(E e, long timeout, TimeUnit unit);
+E poll(long timeout, TimeUnit unit)
+void put(E e) throws InterruptedException;
+E take()
+}
+Queue <|-- BlockingQueue
+
+interface Deque {
+void addFirst(E e);
+void addLast(E e);
+E removeFirst();
+E removeLast();
+E getFirst();
+E getLast();
+boolean offerFirst(E e);
+boolean offerLast(E e);
+E pollFirst();
+E pollLast();
+E peekFirst();
+E peekLast();
+boolean add(E e);//addLast(e)
+E remove();//removeFirst()
+E element();//getFirst()
+boolean offer(E e);//offerLast(e)
+E poll();//pollFirst()
+E peek();//peekFirst()
+void push(E e);//addFirst
+E pop();//removeFirst
+}
+Queue <|- Deque
+
+interface BlockingDeque {
+void putFirst(E e)
+E takeFirst()
+void putLast(E e)
+E takeLast()
+boolean offerFirst(E e, long timeout, TimeUnit unit)
+E pollFirst(long timeout, TimeUnit unit)
+boolean offerLast(E e, long timeout, TimeUnit unit)
+E pollLast(long timeout, TimeUnit unit)
+void put(E e)//putLast.
+E take()// takeFirst.
+boolean offer(E e, long timeout, TimeUnit unit)//offerLast.
+E poll(long timeout, TimeUnit unit)//pollFirst.
+}
+Deque <|- BlockingDeque
+BlockingQueue <|- BlockingDeque
+
+abstract AbstractCollection
+Collection <|-- AbstractCollection
+
+
+
+Queue <|- AbstractQueue
+AbstractCollection <|- AbstractQueue
+
+
+class ArrayBlockingQueue {
+}
+
+BlockingQueue <|-- ArrayBlockingQueue
+AbstractQueue <|-- ArrayBlockingQueue
+
+class LinkedBlockingQueue
+BlockingQueue <|-- LinkedBlockingQueue
+AbstractQueue <|-- LinkedBlockingQueue
+
+
+class PriorityBlockingQueue
+BlockingQueue <|-- PriorityBlockingQueue
+AbstractQueue <|-- PriorityBlockingQueue
+
+class DelayQueue
+BlockingQueue <|-- DelayQueue
+AbstractQueue <|-- DelayQueue
+
+class LinkedBlockingDeque
+BlockingDeque <|-- LinkedBlockingDeque
+AbstractQueue <|-- LinkedBlockingDeque
+
+@enduml

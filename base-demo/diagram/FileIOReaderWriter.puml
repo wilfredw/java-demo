@@ -1,0 +1,69 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+interface Closeable{
+void close()
+}
+
+interface Readable{
+int read(java.nio.CharBuffer cb)
+}
+abstract class Reader{
+int read(java.nio.CharBuffer target)
+int read()
+int read(char cbuf[])
+int read(char cbuf[], int off, int len)
+}
+Readable <|-- Reader
+Closeable <|-- Reader
+
+class InputStreamReader{}
+Reader <|-- InputStreamReader
+
+class FileReader{}
+InputStreamReader <|-- FileReader
+
+class BufferedReader{
+String readLine(boolean ignoreLF)
+String readLine()
+}
+Reader <|-- BufferedReader
+
+interface Appendable{
+Appendable append(CharSequence csq)
+Appendable append(CharSequence csq, int start, int end)
+Appendable append(char c)
+}
+
+interface Flushable{
+void flush()
+}
+
+abstract class Writer {
+void write(int c)
+void write(char cbuf[])
+void write(char cbuf[], int off, int len)
+void write(String str)
+void write(String str, int off, int len)
+}
+
+Closeable <|-- Writer
+Appendable <|-- Writer
+Flushable <|-- Writer
+
+class OutputStreamWriter{}
+Writer <|-- OutputStreamWriter
+
+class FileWriter{
+FileWriter(String fileName)
+FileWriter(File file)
+}
+OutputStreamWriter<|-- FileWriter
+
+class BufferedWriter{
+void newLine()
+}
+Writer <|-- BufferedWriter
+
+@enduml
+

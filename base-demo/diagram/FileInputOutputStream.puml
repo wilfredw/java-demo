@@ -1,0 +1,50 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+interface Closeable{
+void close()
+}
+
+abstract class InputStream{
+int read()
+int read(byte b[])
+int read(byte b[], int off, int len)
+}
+Closeable <|-- InputStream
+
+class FileInputStream{
+FileInputStream(String filename)
+FileInputStream(File file)
+}
+InputStream <|-- FileInputStream
+
+InputStream <|-- FilterInputStream
+
+class BufferedInputStream{}
+FilterInputStream <|-- BufferedInputStream
+
+interface Flushable{
+void flush()
+}
+
+class OutputStream{
+void write(int b)
+void write(byte b[])
+void write(byte b[], int off, int len)
+}
+Closeable <|-- OutputStream
+Flushable <|-- OutputStream
+
+class FileOutputStream{
+FileOutputStream(String filename)
+FileOutputStream(File file)
+}
+OutputStream <|-- FileOutputStream
+
+class FilterOutputStream{}
+OutputStream <|-- FilterOutputStream
+
+class BufferedOutputStream{}
+FilterOutputStream <|-- BufferedOutputStream
+@enduml
+
