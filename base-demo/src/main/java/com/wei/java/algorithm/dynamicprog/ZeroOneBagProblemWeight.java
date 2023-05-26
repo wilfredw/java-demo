@@ -93,9 +93,14 @@ public class ZeroOneBagProblemWeight {
 
 
     /**
+     * 动态规划中有三个概念：
+     * 1.每一步骤的操作动作
+     * 2.每一步骤后的状态值，会限制或影响后续的发展
+     * 3.每一步骤后的结果值，只取需要的最优值
      * 回溯遍历把每一个东西放入或者不放入包中，在不超过总承重情况下，获得最大重量的情况
      * nodeCalcStates只要存储每个步骤（放或者不放）后，包内所有可能存在的重量和价值的情况。
      * 重量存在不存在
+     *
      * @param nodeWeight
      * @param nodeTotalNum
      * @param bagWeight

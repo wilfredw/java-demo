@@ -10,24 +10,24 @@ public class QuickSortDemo {
     }
 
     public static void quickSort(int[] nums, int start, int end) {
-        if (start == end) {
+        if (start >= end) {
             return;
         }
-        swapEndWithMidNum(nums, start, end);
-        int partitionIndex = start;
+        swapEndWithPivot(nums, start, end);
+        int pivotIndex = start;
         for (int i = start; i < end; ++i) {
             if (nums[i] < nums[end]) {
-                swapNum(nums, i, partitionIndex);
-                partitionIndex++;
+                swapNum(nums, i, pivotIndex);
+                pivotIndex++;
             }
         }
-        swapNum(nums, partitionIndex, end);
+        swapNum(nums, pivotIndex, end);
 
-        quickSort(nums, start, partitionIndex);
-        quickSort(nums, partitionIndex + 1, end);
+        quickSort(nums, start, pivotIndex - 1);
+        quickSort(nums, pivotIndex + 1, end);
     }
 
-    public static void swapEndWithMidNum(int[] nums, int start, int end) {
+    public static void swapEndWithPivot(int[] nums, int start, int end) {
         if ((end - start) > 3) {
             int midIndex = (start + end) / 2;
             if (nums[start] > nums[end]) {

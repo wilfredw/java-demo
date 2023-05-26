@@ -36,6 +36,10 @@ package com.wei.java.algorithm.dynamicprog;
  * 1 <= n <= 5000
  * rollMax.length == 6
  * 1 <= rollMax[i] <= 15
+ *
+ * 这里每一步骤是，当前筛子投6种情况
+ * 中间过程，是上一个投出的数字，以及连续次数，会限制，影响这步骤能投哪些情况硬币加不加没有限制
+ * 状态值是每种情况的情况数目，是相加得到最后结果
  */
 public class DynamicDice {
     public static int modeNum = 1000000000 + 7;

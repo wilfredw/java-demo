@@ -1,5 +1,7 @@
 package com.wei.java.collections;
 
+import com.alibaba.fastjson.JSON;
+
 import java.util.*;
 
 /**
@@ -10,6 +12,7 @@ import java.util.*;
  */
 public class CompareDemo {
     public static void main(String[] args) {
+        compareArray();
         compareList();
         System.out.println("==========");
         compareTreeMap();
@@ -44,6 +47,14 @@ public class CompareDemo {
         for (Map.Entry<Integer, String> entry : treeMap2.entrySet()) {
             System.out.println(entry.getKey());
         }
+    }
+
+    public static void compareArray() {
+        System.out.println("==== compare array start");
+        String[] words = new String[]{"bb", "ba", "a"};
+        Arrays.sort(words);
+        System.out.println(JSON.toJSONString(words));
+        System.out.println("==== compare array end");
     }
 
     public static void compareList() {

@@ -51,6 +51,11 @@ public class ZeroOneBagProblemWeightValue {
     }
 
     /**
+     * 动态规划中有三个概念：
+     * 1.每一步骤的操作动作
+     * 2.每一步骤后的状态值，会限制或影响后续的发展
+     * 3.每一步骤后的结果值，只取需要的最优值
+     * 这里每一步骤是每个物品放不放，状态值是重量，结果值是最大价值
      * 回溯遍历把每一个东西放入或者不放入包中，在不超过总承重情况下，获得最大价值的情况（重量大小无所谓）
      * 这里每个步骤的只有重量都有限制，所以每种情况都会影响后续步骤发展，以及最终结果。
      * 所以要记录每一种重量的情况，价值只需要最大值，不需要记录每种情况，只需要最大值
@@ -82,10 +87,12 @@ public class ZeroOneBagProblemWeightValue {
             if (nodeWeight[nodeIndex] <= bagWeight) {
                 // 当前物品放进去的情况
                 for (int j = bagWeight - nodeWeight[nodeIndex]; j >= 0; --j) {
-                    includeNodeW = j + nodeWeight[nodeIndex];
-                    int value = nodeCalcStates[j] + nodeValue[nodeIndex];
-                    if (value > nodeCalcStates[includeNodeW]) {
-                        nodeCalcStates[includeNodeW] = value;
+                    if (nodeCalcStates[j] > -1) {
+                        includeNodeW = j + nodeWeight[nodeIndex];
+                        int value = nodeCalcStates[j] + nodeValue[nodeIndex];
+                        if (value > nodeCalcStates[includeNodeW]) {
+                            nodeCalcStates[includeNodeW] = value;
+                        }
                     }
                 }
             }

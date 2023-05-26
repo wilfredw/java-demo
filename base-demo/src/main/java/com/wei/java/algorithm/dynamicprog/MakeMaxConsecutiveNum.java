@@ -43,6 +43,10 @@ import java.util.Arrays;
  * 链接：https://leetcode.cn/problems/maximum-number-of-consecutive-values-you-can-make
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  *
+ * 基础的动态规划思想，对上一步的硬币加不加得出的所有结果，总结规划，得出所有的值情况
+ * 这里每一步骤是，当前硬币要不要加上上一步骤的所有状态值
+ * 中间过程，硬币加不加没有限制
+ * 状态值是最后判断结果，连续数目
  * @author buhuan.wang
  * @since 2023/2/8
  */

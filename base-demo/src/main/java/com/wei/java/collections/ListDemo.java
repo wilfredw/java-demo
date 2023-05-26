@@ -1,6 +1,9 @@
 package com.wei.java.collections;
 
+import com.alibaba.fastjson.JSON;
+
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
@@ -34,5 +37,14 @@ public class ListDemo {
             }
         }
         System.out.println("final: " + userIdList);
+
+        ArrayList<Integer> nums = new ArrayList<>(4);
+        nums.add(9);
+        nums.add(4);
+        nums.add(3);
+        nums.add(1);
+        Collections.sort(nums);
+        System.out.println(JSON.toJSONString(nums));
+
     }
 }

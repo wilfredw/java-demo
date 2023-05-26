@@ -5,10 +5,10 @@ package com.wei.java.util;
  */
 public class SystemOutUtil {
     public static void println(String msg) {
-        System.out.println(DateTimeUtil.nowSimpleFormat() + " " + msg);
+        System.out.println(DateTimeUtil.nowSimpleFormat() + " tid:" + Thread.currentThread().getId() + " " + msg);
     }
 
     public static void print(String msg) {
-        System.out.print(DateTimeUtil.nowSimpleFormat() + " " + msg);
+        System.out.print(DateTimeUtil.nowSimpleFormat() + " tid:" + Thread.currentThread().getId() + " " + msg);
     }
 }
